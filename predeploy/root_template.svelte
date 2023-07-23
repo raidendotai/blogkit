@@ -25,7 +25,7 @@ const pages = {
 
 <div id="header" class="max-w-7xl xl:max-w-6xl mx-auto border-gray-300 border-b">
 	<div class="p-4">
-		<a href='/' class="text-3xl font-medium text-black hover:text-gray-600 duration-200 ">Ultra Blog 3000</a>
+		<a href='/' class="text-3xl font-medium text-black hover:text-gray-600 duration-200 ">{{BLOG_TITLE}}</a>
 		<h3 class="py-2 text-gray-500 text-base">{{BLOG_DESCRIPTION}}</h3>
 	</div>
 </div>
