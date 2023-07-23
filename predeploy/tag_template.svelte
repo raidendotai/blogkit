@@ -3,6 +3,10 @@
 	<meta property="og:title" content="{{BLOG_TITLE_OG}}"/>
 	<meta property="og:description" content="{{BLOG_DESCRIPTION_OG}}"/>
 	<meta property="og:image" content="{{BLOG_IMAGE_OG}}"/>
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="{{BLOG_TITLE_OG}}" />
+	<meta name="twitter:description" content="{{BLOG_DESCRIPTION_OG}}" />
+	<meta name="twitter:image" content="{{BLOG_IMAGE_OG}}" />
 </svelte:head>
 
 <script>

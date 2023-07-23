@@ -2,7 +2,11 @@
 	<title>{{POST_TITLE}}</title>
 	<meta property="og:title" content="{{POST_TITLE_OG}}"/>
 	<meta property="og:description" content="{{POST_DESCRIPTION_OG}}"/>
-	<meta property="og:image" content="{{POST_IMAGE_OG}}"/>	
+	<meta property="og:image" content="{{POST_IMAGE_OG}}"/>
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="{{POST_TITLE_OG}}" />
+	<meta name="twitter:description" content="{{POST_DESCRIPTION_OG}}" />
+	<meta name="twitter:image" content="{{POST_IMAGE_OG}}" />	
 </svelte:head>
 
 <script>

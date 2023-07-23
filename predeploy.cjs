@@ -147,15 +147,15 @@ function make_post(p){
 						: ''
 	
 	return post_template.replaceAll(`{{POST_TITLE}}`,p.title)
-											.replace(
+											.replaceAll(
 												`{{POST_TITLE_OG}}`,
 												_.escape(p.title)
 											)
-											.replace(
+											.replaceAll(
 												`{{POST_DESCRIPTION_OG}}`,
 												_.escape(p.description)
 											)
-											.replace(
+											.replaceAll(
 												`{{POST_IMAGE_OG}}`,
 												og_image
 											)
@@ -182,16 +182,16 @@ function make_root(page,n_pages){
 						: ''
 						
 	return root_template.replaceAll(`{{BLOG_TITLE}}`,BLOG_CONFIG.title)
-						.replace(
+						.replaceAll(
 							`{{BLOG_TITLE_OG}}`,
 							_.escape(BLOG_CONFIG.title)
 						)
-						.replace(
+						.replaceAll(
 							`{{BLOG_DESCRIPTION_OG}}`,
 							_.escape(blog_description)
 						)
-						.replace(`{{BLOG_DESCRIPTION}}`,blog_description)
-						.replace(
+						.replaceAll(`{{BLOG_DESCRIPTION}}`,blog_description)
+						.replaceAll(
 							`{{BLOG_IMAGE_OG}}`,
 							og_image
 						)
@@ -227,17 +227,17 @@ function make_page(page,page_idx,n_pages){
 						? `https://${BLOG_CONFIG.domain}/${og_image_check[0].file}`
 						: ''
 	return page_template.replaceAll(`{{BLOG_TITLE}}`, `${BLOG_CONFIG.title} | Page ${page_idx+1}/${n_pages}` )
-						.replace(
+						.replaceAll(
 							`{{BLOG_TITLE_OG}}`,
 							_.escape(
 								`${BLOG_CONFIG.title} | Page ${page_idx+1}/${n_pages}`
 							)
 						)
-						.replace(
+						.replaceAll(
 							`{{BLOG_DESCRIPTION_OG}}`,
 							_.escape(og_description)
 						)
-						.replace(
+						.replaceAll(
 							`{{BLOG_IMAGE_OG}}`,
 							og_image
 						)
@@ -277,15 +277,15 @@ function make_tags(tag,posts){
 	return tag_template.replaceAll(`{{BLOG_TITLE}}`, `${BLOG_CONFIG.title} | Tagged in : ${tag}` )
 						.replaceAll(`{{TAG_NAME}}`, tag)
 						.replace(`{{TAG_POSTS_COUNT}}`, posts.length)
-						.replace(
+						.replaceAll(
 							`{{BLOG_TITLE_OG}}`,
 							_.escape( `${BLOG_CONFIG.title} | Tagged in : ${tag} ` )
 						)
-						.replace(
+						.replaceAll(
 							`{{BLOG_DESCRIPTION_OG}}`,
 							_.escape(og_description)
 						)
-						.replace(
+						.replaceAll(
 							`{{BLOG_IMAGE_OG}}`,
 							og_image
 						)
