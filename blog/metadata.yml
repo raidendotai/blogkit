@@ -1,5 +1,5 @@
-title: Ultra Blog
-description: "Solid Snake one said : What are you waiting for? Don't think, shoot!"
+title: Ultra Blog 3000
+description: "A very interesting quote from somebody I like"
 owner: Plissken
 postsPerPage: 5
 # domain  will be used to resolve SEO stuff, i.e. for <meta property="og:image" content="{domain}/slug/{image}"/>
