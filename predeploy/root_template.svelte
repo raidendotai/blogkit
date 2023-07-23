@@ -109,7 +109,7 @@ const pages = {
 
 <div id="footer" class="mx-auto border-gray-300 border-t pb-12">
 	<div class="max-w-7xl xl:max-w-6xl mx-auto px-0 pt-6 text-gray-700">
-		<a href='/' class="font-medium text-black hover:text-gray-700 duration-200">Ultra Blog 3000</a> | {`${new Date().getFullYear()}`}
+		<a href='/' class="font-medium text-black hover:text-gray-700 duration-200">{{BLOG_TITLE}}</a> | {`${new Date().getFullYear()}`}
 		<h3 class="py-2 text-gray-500 text-sm">Powered by <a class="text-black hover:text-gray-700 duration-200" href="https://github.com/raidendotai/blogkit" target="_blank">BlogKit</a></h3>
 	</div>
 </div>
