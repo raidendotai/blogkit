@@ -1,0 +1,9 @@
+title: Ultra Blog
+description: "Solid Snake one said : What are you waiting for? Don't think, shoot!"
+owner: Plissken
+postsPerPage: 5
+# domain  will be used to resolve SEO stuff, i.e. for <meta property="og:image" content="{domain}/slug/{image}"/>
+# domain without '/' at the end
+domain: blogkitdemo.vercel.app
+# social data, will be used later to add social icons to header/footer
+twitter: n_raidenai
