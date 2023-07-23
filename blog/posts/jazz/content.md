@@ -1,4 +1,4 @@
-![Jazz](jazz.jpg)
+![King Oliver's Creole Jazz Band, 1923](jazz.jpg)
 
 ## Introduction
 Jazz, with its soulful melodies and improvisational flair, has left an indelible mark on the world of music. In this article, we delve into the profound influence of jazz on various genres, exploring its evolution and enduring legacy.
@@ -23,6 +23,8 @@ Jazz has often been intertwined with social and political movements. We discuss 
 
 ## Modern Jazz Innovators
 Contemporary jazz continues to push boundaries and break new ground. We highlight some of the modern jazz innovators who are shaping the genre and captivating audiences worldwide.
+
+![A Love Supreme Cover](https://ifmusic.co.uk/wp-content/uploads/2021/02/alovesuprememonouk.jpg)
 
 ## Conclusion
 Jazz remains a living art form, a testament to the power of creativity and innovation. Its influence on modern music is immeasurable, and its ability to evoke emotion and captivate listeners endures as a testament to its timeless appeal.

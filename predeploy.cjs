@@ -57,12 +57,18 @@ function build_search(){true}
 function md_convert(md){
 	const postConvertYoutubeRegex = /<p><a href="https:\/\/youtu\.be\/([a-zA-Z0-9_-]+)">([^<]+)<\/a><\/p>|<p><a href="https:\/\/www\.youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)">([^<]+)<\/a><\/p>/g;
 
-	let html = showdown_md_converter.makeHtml(md).replace(postConvertYoutubeRegex, (match, videoId1, textInsideLink1, videoId2, textInsideLink2) => {
-	  const videoId = videoId1 || videoId2;
-	  const textInsideLink = textInsideLink1 || textInsideLink2;
-	  return `<div class="italic py-4 text-center">${textInsideLink}<br/><iframe src="https://www.youtube.com/embed/${videoId}" class="w-full xl:w-1/2 h-[25vh] xl:h-[40vh] py-2 mx-auto text-center" frameborder="0" allowfullscreen></iframe></div>`;
-	});
-
+	const postConvertImgRegex = /<p><img src="(.+?)" alt="(.+?)" \/><\/p>/g;
+	
+	let html = showdown_md_converter.makeHtml(md)
+		.replace(postConvertYoutubeRegex, (match, videoId1, textInsideLink1, videoId2, textInsideLink2) => {
+		  const videoId = videoId1 || videoId2;
+		  const textInsideLink = textInsideLink1 || textInsideLink2;
+		  
+		  return `<div class="font-normal py-4 text-center"><iframe src="https://www.youtube.com/embed/${videoId}" class="w-full xl:w-8/12 h-[25vh] xl:h-[40vh] py-2 mx-auto text-center" frameborder="0" allowfullscreen></iframe><div class="text-lg italic pt-2 my-2">${textInsideLink}</div></div>`
+		})
+		.replace(postConvertImgRegex, (match, imgUrl, altText) => {
+			return `<div class="font-normal py-4 text-center"><img src="${imgUrl}" alt="${altText}" /><div class="text-lg italic pt-2 my-2">${altText}</div></div>`;
+		})
 	for (let k of Object.keys(tailwind_inject) ) {
 		html = html.replaceAll(`<${k}` , `<${k} class="${tailwind_inject[k]}"`)
 	}
@@ -112,10 +118,15 @@ function list_posts(){
 		}
 	}).filter(p=>p && p.public).map( p => {
 		const slug = sanitize( slugify(p.title).toLowerCase() )
+		// let new_html = p.html.replaceAll(`<img src="`,`<img class="text-center mx-auto" src="${slug}/`)
+		let new_html = p.html
+		for (let f of p.files){
+			new_html = new_html.replaceAll(`<img src="${f}` , `<img src="${slug}/${f}`)
+		}
 		return {
 			...p,
 			slug,
-			html: p.html.replaceAll(`<img src="`,`<img class="text-center mx-auto" src="${slug}/`)
+			html: new_html.replaceAll(`<img src="`,`<img class="text-center mx-auto" src="`),
 		}
 	}).sort((a, b) => new Date(b.created).getTime() - new Date(a.created).getTime())
 	.map( (p,index) => {
