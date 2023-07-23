@@ -5,6 +5,8 @@ Write your posts in markdown format, deploy in one take.
 Everything rendered static, (almost) SEO-ready, without any complicated SSR dependency.
 Built using SvelteKit, intended to be used with Vercel. Includes components from [shadcdn-svelte](https://www.shadcn-svelte.com/).
 
+demo: [blogkitdemo.vercel.app](https://blogkitdemo.vercel.app/).
+
 # How To Use
 
 * clone this repo
