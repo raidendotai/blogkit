@@ -16,7 +16,7 @@ const tailwind_inject = {
 	h4: `mt-3 pt-4 scroll-m-20 text-xl font-medium tracking-tight`,
 	h5: `mt-3 pt-4 scroll-m-20 text-lg font-medium tracking-tight`,
 	h6: `mt-3 pt-4 scroll-m-20 font-medium tracking-tight`,
-	p: `p-2 px-4 pt-0 leading-7 [&:not(:first-child)]:mt-6`,
+	p: `text-lg p-2 px-4 pt-0 leading-7 [&:not(:first-child)]:mt-6`,
 	blockquote: `mt-6 border-l-2 pl-6 italic`,
 	table: `my-6 w-full overflow-y-auto`,
 	tr: `m-0 border-t p-0 even:bg-muted`,

@@ -20,11 +20,11 @@ const tags = {{POST_TAGS}}
 	by <span class="">{{POST_AUTHORS}}</span>
 	<br/><span class="text-sm">{{POST_TIME}}</span>
 </div>
-<div class="p-6 pb-6 mb-2 bg-gray-50">
+<div class="sm:p-6 xl:p-12 p-0 pb-6 mb-2 bg-white border-t rounded">
 {{POST_HTML}}
-<div class="pt-4">
+<div class="mt-4 p-4 bg-gray-100">
 	{#each tags as tag,tagIdx}
-	<a href={`/tag/${tag}`} class="bg-gray-200 p-2 text-xs text-gray-500 hover:bg-gray-300 hover:text-black duration-200">{tag}</a>&nbsp;
+	<a href={`/tag/${tag}`} class="bg-gray-200 p-2 text-sm text-gray-500 hover:bg-gray-300 hover:text-black duration-200">{tag}</a>&nbsp;
 	{/each}
 </div>
 </div>
