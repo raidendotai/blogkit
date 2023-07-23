@@ -30,7 +30,7 @@ const pages = {
 	</div>
 </div>
 
-<div id="container" class="max-w-7xl xl:max-w-6xl mx-auto p-6 pt-2">
+<div id="container" class="max-w-7xl xl:max-w-6xl mx-auto p-6 pt-2 min-h-[90vh]">
 	
 	{#if $page.route.id != '/'}
 	<slot></slot>
