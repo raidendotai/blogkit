@@ -10,7 +10,7 @@ const _ = require('lodash');
 const BLOG_CONFIG = YAML.parse( fs.readFileSync(`./blog/metadata.yml`, 'utf8') )
 
 const tailwind_inject = {
-	h1: `mt-3 pt-4 scroll-m-20 text-2xl font-bold tracking-tight`,
+	h1: `mt-3 pt-4 scroll-m-20 text-2xl font-bold tracking-tight border-b pb-2 border-gray-400`,
 	h2: `mt-3 pt-4 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight transition-colors first:mt-0`,
 	h3: `mt-3 pt-4 scroll-m-20 text-xl font-semibold tracking-tight`,
 	h4: `mt-3 pt-4 scroll-m-20 text-xl font-medium tracking-tight`,
@@ -26,6 +26,7 @@ const tailwind_inject = {
 	code: `relative bg-gray-200 p-4 font-mono text-sm`,
 	lead: `text-xl text-muted-foreground`,
 	small: `text-sm font-medium leading-none`,
+	a: `text-blue-700 font-medium hover:text-blue-900 duration-200`,
 }
 
 function _list_folders(path) {
@@ -64,10 +65,10 @@ function md_convert(md){
 		  const videoId = videoId1 || videoId2;
 		  const textInsideLink = textInsideLink1 || textInsideLink2;
 		  
-		  return `<div class="font-normal py-4 text-center"><iframe src="https://www.youtube.com/embed/${videoId}" class="w-full xl:w-8/12 h-[25vh] xl:h-[40vh] py-2 mx-auto text-center" frameborder="0" allowfullscreen></iframe><div class="text-lg italic pt-2 my-2">${textInsideLink}</div></div>`
+		  return `<div class="font-normal py-4 text-center"><iframe src="https://www.youtube.com/embed/${videoId}" class="w-full xl:w-8/12 h-[25vh] xl:h-[40vh] py-2 mx-auto text-center" frameborder="0" allowfullscreen></iframe><div class="italic pt-2 my-2">${textInsideLink}</div></div>`
 		})
 		.replace(postConvertImgRegex, (match, imgUrl, altText) => {
-			return `<div class="font-normal py-4 text-center"><img src="${imgUrl}" alt="${altText}" /><div class="text-lg italic pt-2 my-2">${altText}</div></div>`;
+			return `<div class="font-normal py-4 text-center"><img src="${imgUrl}" /><div class="italic pt-2 my-2">${altText}</div></div>`;
 		})
 	for (let k of Object.keys(tailwind_inject) ) {
 		html = html.replaceAll(`<${k}` , `<${k} class="${tailwind_inject[k]}"`)
@@ -117,7 +118,7 @@ function list_posts(){
 			...post_config,
 		}
 	}).filter(p=>p && p.public).map( p => {
-		const slug = sanitize( slugify(p.title).toLowerCase() )
+		const slug = sanitize( slugify(p.title).toLowerCase() ).replace(/-+/g, '-')
 		// let new_html = p.html.replaceAll(`<img src="`,`<img class="text-center mx-auto" src="${slug}/`)
 		let new_html = p.html
 		for (let f of p.files){
@@ -128,7 +129,7 @@ function list_posts(){
 			slug,
 			html: new_html.replaceAll(`<img src="`,`<img class="text-center mx-auto" src="`),
 		}
-	}).sort((a, b) => new Date(b.created).getTime() - new Date(a.created).getTime())
+	}).sort((a, b) => new Date(a.created).getTime() - new Date(b.created).getTime())
 	.map( (p,index) => {
 		return {
 			...p,
